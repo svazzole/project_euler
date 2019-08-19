@@ -1,8 +1,8 @@
 # Project Euler
 
-This repo contains my solutions (written in Rust) to the problems of Project Euler.
+This repo contains my solutions (written in Rust) to the problems of [Project Euler](https://projecteuler.net/).
 
-I'm learning Rust trying to solve as many problems as possible.
+I'm trying to learn Rust solving as many problems as possible.
 
 If you want feel free to contribute, but remember that:
 
