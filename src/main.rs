@@ -1,9 +1,28 @@
+use std::io;
+
+mod utils;
+
+
 fn main() {
-    println!("Hello, Rust!");
-    println!("This is Problem 1.");
-    problem1();
-    problem2();
-    problem3();
+    loop {
+        println!("Please input the number of the problem:");
+        
+        let mut pb_num_str = String::new();
+
+        io::stdin().read_line(&mut pb_num_str)
+            .expect("Failed to read line");
+
+        let pb_num: u32 = pb_num_str.trim().parse()
+            .expect("Please type a number!");
+
+        match pb_num {
+            1 => problem1(),
+            2 => problem2(),
+            3 => problem3(),
+            _ => ()
+        }
+    }
+
 }
 
 fn problem1() {
@@ -38,22 +57,6 @@ fn problem2() {
     println!("The sum is {}", s);
 }
 
-fn is_prime(x: u64) -> bool {
-    if x%2 == 0 {
-        return false;
-    } else {
-        let sqrt_x: u64 = (x as f64).sqrt() as u64;
-        for i in (3..sqrt_x).step_by(2) {
-            if x%i == 0 {
-                return false;
-            }
-        }
-    }
-
-    return true;
-
-}
-
 fn problem3() {
     println!("Running problem 3...");
     let prime: u64 = 600851475143;
@@ -66,7 +69,7 @@ fn problem3() {
     let mut stop = false;
 
     while !stop {
-        if (prime%x == 0) & (is_prime(x)) {
+        if (prime%x == 0) & (utils::is_prime(x)) {
             largest_factor = x;
             stop = true;
         }
